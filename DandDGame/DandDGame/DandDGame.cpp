@@ -1,11 +1,42 @@
-// DandDGame.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
 #include <iostream>
+
+using std::cout;
 
 int main()
 {
-    std::cout << "Hello World!\n";
+
+	bool gameLoop = true;
+	bool validInput = false;
+	int choice;
+
+	do {
+		
+		cout << "****************\n";
+		cout << "1. Start Game\n";
+		cout << "2. Load Game\n";
+		cout << "3. Exit\n";
+		cout << "****************\n";
+
+		cout << "Enter: ";
+		std::cin >> choice;
+
+		//checks for valid user input
+		if (std::cin.fail()) {
+			cout << "Invalid input! Please input a integer.\n";
+			//clear bad input and ignore remaining
+			std::cin.clear();
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
+		}
+
+		if (choice == 3)
+			gameLoop = false;
+
+	} while (gameLoop);
+
+	cout << "Goodbye!";
+
+    return 0;
+
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
